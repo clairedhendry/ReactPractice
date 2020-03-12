@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>React Hello World</title>
+    <title>Sally Student</title>
+    <link type="text/css" href="style.css" rel="stylesheet"/>
 </head>
 <body>
     <div id="application-root"></div>
@@ -16,24 +17,69 @@
 <script
   src="https://unpkg.com/babel-standalone@6/babel.min.js">
 </script>
+
 <script type="text/babel">
-const appRoot = document.querySelector("#application-root");
-function App(props) {
- 
-  return (
-    <header>
-      {props.children}
-    </header>
-  );
+const appRoot = document.querySelector("#application-root")
+
+function AboutSection() {
+  return <section>
+  <h2>Contact Info</h2>
+  <address> 
+    <ul className="contact">
+      <li>Name: Sally Student</li>
+      <li>Email: <a href="mailto:sallystudent@gmail.com?Subject=Hi%20Sally" target="_blank">Send Mail</a></li>
+      <li>Phone: <a href="tel:+1489-234-2343">489-234-2343</a></li>
+    </ul>
+    </address>
+    <div className="img">
+      <img className="portrait" src="https://m.media-amazon.com/images/M/MV5BMTY5NzE3NzU3MF5BMl5BanBnXkFtZTgwMjg0NTQ5MDE@._V1_.jpg" alt="Photo of Ilana from Broad City"/>
+      <p className="img_description">This is me.</p>
+    </div>
+</section>
+
 }
 
-// Nested elements inside the App
-ReactDOM.render(
-  <App className='my-class'>
-   <div>
-    <h1>Current Page Title!</h1>
-    </div>
-  </App>, appRoot);
+function EducationSection() {
+    <section>
+    <h2>Education</h2>
+      <ul className="education">
+        <li>University 2005</li>
+      </ul>
+  </section>
+}
+
+function EmploymentSection() {
+   return <section>
+   <h2>Employment</h2>
+     <ul className="employment">
+       <li>Beaker's Coffee House, Barista 2008-2009
+       <br></br>
+       Give the people coffee. All the time.</li>
+       <br></br>
+       <li>Something Else, Manager 2010-2013
+       <br></br>
+       Manage loads of things. All the things. All the cats.</li>
+     </ul>
+ </section>
+}
+
+const about = AboutSection();
+const education = EducationSection();
+const employment = EmploymentSection();
+
+function App() {
+ return <div>
+    <header>Sally Student's Resume</header>
+    {about}
+    {education}
+    {employment}
+  </div>;
+
+}
+
+ReactDOM.render(<App />, appRoot)
+
+
 </script>
 </body>
 </html>
